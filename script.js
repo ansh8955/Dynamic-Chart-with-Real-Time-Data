@@ -1,4 +1,5 @@
 const myChart = document.getElementById("myChart");
+const para =document.querySelector('#para');
 
 let chart;
 
@@ -22,9 +23,16 @@ const config = {
         function addData() {
             const newData = Math.random() * 100; // Generate random data
             chart.data.labels.push(chart.data.labels.length);
-            console.log(chart.data.labels);
+            // console.log(chart.data.labels);
             chart.data.datasets[0].data.push(newData);
             chart.update(); // Update the chart
+            
+anime({
+  targets: para,
+  innerHTML: [0, newData],
+  easing: 'linear',
+  round: 10 // Will round the animated value to 1 decimal
+});
         }
 
         // Add data at regular intervals (e.g., every 1 second)
@@ -32,3 +40,13 @@ const config = {
 
 
  chart = new Chart(myChart,config);
+
+
+
+//  btn.addEventListener("click",()=>{
+
+  
+
+//  }
+ 
+//  )
